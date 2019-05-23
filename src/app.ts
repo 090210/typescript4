@@ -22,24 +22,23 @@ class Vrouw extends Medewerker {
 
     zwanger: boolean
 
-    constructor(zwanger: boolean,voornaam: string, achternaam: string, adres: string) {
+    constructor(voornaam: string, achternaam: string, adres: string, zwanger: boolean) {
         super(voornaam, achternaam, adres);        
         this.zwanger = zwanger;
         
     }
 
     toonInfo(): string {
-        return this.voornaam + ' ' + this.achternaam + ' ' + this.adres;
+        return this.voornaam + ' ' + this.achternaam + ' ' + this.adres + ' ' + this.zwanger;
     }
     
-    isZwanger() {
+    isZwanger(): string {
         if(this.zwanger == true){
-            return this.zwanger == true;
+            return 'zwanger';
         } else {
-            return this.zwanger == false;
+            return 'niet zwanger';
         }
     }
-
 
 }
 
@@ -53,5 +52,6 @@ class Man extends Medewerker {
 }
 
 var jantje = new Man('Ahmed', 'Jantje', 'Lol 32');
-var vrouwtje = new Vrouw(true, 'Achie', 'Ergens 32', 'Lientje');
+var vrouwtje = new Vrouw('Lientje', 'Achie', 'Ergens 32', true);
 
+alert(vrouwtje.isZwanger());

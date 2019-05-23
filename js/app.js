@@ -21,20 +21,20 @@ var Medewerker = /** @class */ (function () {
 }());
 var Vrouw = /** @class */ (function (_super) {
     __extends(Vrouw, _super);
-    function Vrouw(zwanger, voornaam, achternaam, adres) {
+    function Vrouw(voornaam, achternaam, adres, zwanger) {
         var _this = _super.call(this, voornaam, achternaam, adres) || this;
         _this.zwanger = zwanger;
         return _this;
     }
     Vrouw.prototype.toonInfo = function () {
-        return this.voornaam + ' ' + this.achternaam + ' ' + this.adres;
+        return this.voornaam + ' ' + this.achternaam + ' ' + this.adres + ' ' + this.zwanger;
     };
     Vrouw.prototype.isZwanger = function () {
         if (this.zwanger == true) {
-            return this.zwanger == true;
+            return 'zwanger';
         }
         else {
-            return this.zwanger == false;
+            return 'niet zwanger';
         }
     };
     return Vrouw;
@@ -50,4 +50,5 @@ var Man = /** @class */ (function (_super) {
     return Man;
 }(Medewerker));
 var jantje = new Man('Ahmed', 'Jantje', 'Lol 32');
-var vrouwtje = new Vrouw(true, 'Achie', 'Ergens 32', 'Lientje');
+var vrouwtje = new Vrouw('Lientje', 'Achie', 'Ergens 32', true);
+alert(vrouwtje.isZwanger());
