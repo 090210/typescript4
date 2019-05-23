@@ -2,8 +2,6 @@ interface Persoon {
     voornaam: string;
     achternaam: string;
     adres: string;
-    zwanger: boolean;
-
 }   
 
 abstract class Medewerker implements Persoon {
@@ -24,6 +22,12 @@ class Vrouw extends Medewerker {
 
     zwanger: boolean
 
+    constructor(zwanger: boolean,voornaam: string, achternaam: string, adres: string) {
+        super(voornaam, achternaam, adres);        
+        this.zwanger = zwanger;
+        
+    }
+
     toonInfo(): string {
         return this.voornaam + ' ' + this.achternaam + ' ' + this.adres;
     }
@@ -41,6 +45,7 @@ class Vrouw extends Medewerker {
 
 class Man extends Medewerker {
 
+
     toonInfo(): string {
         return this.voornaam + ' ' + this.achternaam + ' ' + this.adres;
     }
@@ -48,5 +53,5 @@ class Man extends Medewerker {
 }
 
 var jantje = new Man('Ahmed', 'Jantje', 'Lol 32');
-var vrouwtje = new Vrouw('Lientje', 'Achie', 'Ergens 32', true);
+var vrouwtje = new Vrouw(true, 'Achie', 'Ergens 32', 'Lientje');
 
